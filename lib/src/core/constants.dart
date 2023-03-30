@@ -1,0 +1,1 @@
+const verificationCodeLength = 4;

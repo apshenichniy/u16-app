@@ -1,0 +1,18 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+
+@RoutePage()
+class RatingPage extends StatelessWidget {
+  const RatingPage({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('RatingPage'),
+      ),
+      body: const Center(
+        child: Text('RatingPage'),
+      ),
+    );
+  }
+}
