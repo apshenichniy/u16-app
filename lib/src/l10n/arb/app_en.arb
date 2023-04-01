@@ -58,5 +58,8 @@
     "navBarTraining": "Training",
     "navBarRating": "Rating",
     "navBarChat": "Chat",
-    "navBarProfile": "Profile"
+    "navBarProfile": "Profile",
+    "profileFollowers": "Followers",
+    "profileSubscriptions": "Subscriptions",
+    "profileUserNotFound": "User not found"
 }

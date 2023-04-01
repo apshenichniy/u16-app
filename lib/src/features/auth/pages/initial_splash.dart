@@ -32,7 +32,7 @@ class InitialSplashPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircularProgressIndicator(),
+            const CircularProgressIndicator.adaptive(),
             const SizedBox(height: 20),
             Text(context.l10n.authSplashMessage),
           ],

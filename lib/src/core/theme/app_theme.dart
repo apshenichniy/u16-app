@@ -41,6 +41,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         titleTextStyle:
             customTheme.tHeading3?.copyWith(color: colorScheme.onBackground),
+        surfaceTintColor: colorScheme.background,
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: colorScheme.background,

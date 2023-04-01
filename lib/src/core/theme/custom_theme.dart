@@ -71,7 +71,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
     this.tHeading7 = const TextStyle(
       //fontFamily: 'RedHatDisplay',
       fontSize: 14,
-      fontWeight: FontWeight.w400,
+      fontWeight: FontWeight.w500,
     ),
     this.tHeading7Medium = const TextStyle(
       //fontFamily: 'RedHatDisplay',

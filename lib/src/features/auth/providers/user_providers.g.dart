@@ -6,7 +6,7 @@ part of 'user_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userHash() => r'd0985bcbc0d14fc4aeeda071ba6993375193499e';
+String _$userHash() => r'5b71ea837faa155ac9b9b2910446c3a8bf01f276';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -107,7 +107,7 @@ class UserProvider extends AutoDisposeFutureProvider<AppUser?> {
   }
 }
 
-String _$currentUserHash() => r'15d73267f2f4b82b647686c2823edc4c92603902';
+String _$currentUserHash() => r'1bde84a16836c7e4dd025291e49daeee57dda73d';
 
 /// Should be consumed only after user authentication. Always has value,
 /// otherwise throws [StateError].
@@ -124,4 +124,19 @@ final currentUserProvider = AutoDisposeFutureProvider<AppUser>.internal(
 );
 
 typedef CurrentUserRef = AutoDisposeFutureProviderRef<AppUser>;
+String _$currentUserIdHash() => r'73a2dd2999236387d6a29ad2113ca1e7eb2513f7';
+
+/// See also [currentUserId].
+@ProviderFor(currentUserId)
+final currentUserIdProvider = AutoDisposeProvider<String?>.internal(
+  currentUserId,
+  name: r'currentUserIdProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$currentUserIdHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef CurrentUserIdRef = AutoDisposeProviderRef<String?>;
 // ignore_for_file: unnecessary_raw_strings, subtype_of_sealed_class, invalid_use_of_internal_member, do_not_use_environment, prefer_const_constructors, public_member_api_docs, avoid_private_typedef_functions

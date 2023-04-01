@@ -34,6 +34,9 @@ class $AssetsImagesGen {
   /// File path: assets/images/coach_profile_type.svg
   String get coachProfileType => 'assets/images/coach_profile_type.svg';
 
+  /// File path: assets/images/collection_tab_icon.svg
+  String get collectionTabIcon => 'assets/images/collection_tab_icon.svg';
+
   /// File path: assets/images/google_icon.svg
   String get googleIcon => 'assets/images/google_icon.svg';
 
@@ -45,6 +48,16 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/junior_profile_type.svg
   String get juniorProfileType => 'assets/images/junior_profile_type.svg';
+
+  /// File path: assets/images/not_found_error.svg
+  String get notFoundError => 'assets/images/not_found_error.svg';
+
+  /// File path: assets/images/notifications_tab_icon.svg
+  String get notificationsTabIcon => 'assets/images/notifications_tab_icon.svg';
+
+  /// File path: assets/images/personal_details_tab_icon.svg
+  String get personalDetailsTabIcon =>
+      'assets/images/personal_details_tab_icon.svg';
 
   /// File path: assets/images/profile.svg
   String get profile => 'assets/images/profile.svg';
@@ -64,11 +77,17 @@ class $AssetsImagesGen {
   /// File path: assets/images/soccer_art.svg
   String get soccerArt => 'assets/images/soccer_art.svg';
 
+  /// File path: assets/images/team_tab_icon.svg
+  String get teamTabIcon => 'assets/images/team_tab_icon.svg';
+
   /// File path: assets/images/training.svg
   String get training => 'assets/images/training.svg';
 
   /// File path: assets/images/training_active.svg
   String get trainingActive => 'assets/images/training_active.svg';
+
+  /// File path: assets/images/video_tab_icon.svg
+  String get videoTabIcon => 'assets/images/video_tab_icon.svg';
 
   /// List of all assets
   List<String> get values => [
@@ -76,18 +95,24 @@ class $AssetsImagesGen {
         chat,
         chatActive,
         coachProfileType,
+        collectionTabIcon,
         googleIcon,
         home,
         homeActive,
         juniorProfileType,
+        notFoundError,
+        notificationsTabIcon,
+        personalDetailsTabIcon,
         profile,
         profileActive,
         rating,
         ratingActive,
         scoutProfileType,
         soccerArt,
+        teamTabIcon,
         training,
-        trainingActive
+        trainingActive,
+        videoTabIcon
       ];
 }
 
