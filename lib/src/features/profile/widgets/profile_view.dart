@@ -103,7 +103,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
     );
   }
 
-  Widget _buildProfileHeader() {
+  Widget _buildProfileHeader(AppUser user) {
     final followersInfo =
         ref.watch(followersInfoProvider(userId: widget.userId)).valueOrNull;
 
@@ -158,8 +158,10 @@ class _ProfileViewState extends ConsumerState<ProfileView>
           Padding(
             padding: const EdgeInsets.symmetric(vertical: ltPadding),
             child: Text(
-              'my bio\nline 1\nline2',
+              user.bio ?? '',
               style: Theme.of(context).customTheme.tHeading6,
+              maxLines: 3,
+              overflow: TextOverflow.clip,
             ),
           ),
           if (!widget.isCurrentUser) _buildFollowAndMessageButtons()
@@ -263,7 +265,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
                     ),
                   ),
                   SliverToBoxAdapter(
-                    child: _buildProfileHeader(),
+                    child: _buildProfileHeader(user),
                   ),
                 ];
               },
@@ -337,29 +339,4 @@ class _TabPageWrapperState extends State<TabPageWrapper>
 
   @override
   bool get wantKeepAlive => true;
-}
-
-class _ProfileAppBar extends SliverPersistentHeaderDelegate {
-  @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
-    return Container(
-      height: kToolbarHeight + MediaQuery.of(context).padding.top,
-      color: Colors.red.shade100,
-      child: const Text('Username'),
-    );
-  }
-
-  @override
-  double get maxExtent => kToolbarHeight;
-
-  @override
-  double get minExtent => kToolbarHeight;
-
-  @override
-  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) =>
-      true;
 }

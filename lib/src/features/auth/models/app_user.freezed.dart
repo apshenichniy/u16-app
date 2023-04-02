@@ -26,6 +26,7 @@ mixin _$AppUser {
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  String? get bio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $AppUserCopyWith<$Res> {
       String username,
       UserProfileType profileType,
       DateTime dateOfBirth,
-      @JsonKey(includeIfNull: false) DateTime? createdAt});
+      @JsonKey(includeIfNull: false) DateTime? createdAt,
+      String? bio});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
     Object? profileType = null,
     Object? dateOfBirth = null,
     Object? createdAt = freezed,
+    Object? bio = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -85,6 +88,10 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      bio: freezed == bio
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -101,7 +108,8 @@ abstract class _$$_AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       String username,
       UserProfileType profileType,
       DateTime dateOfBirth,
-      @JsonKey(includeIfNull: false) DateTime? createdAt});
+      @JsonKey(includeIfNull: false) DateTime? createdAt,
+      String? bio});
 }
 
 /// @nodoc
@@ -119,6 +127,7 @@ class __$$_AppUserCopyWithImpl<$Res>
     Object? profileType = null,
     Object? dateOfBirth = null,
     Object? createdAt = freezed,
+    Object? bio = freezed,
   }) {
     return _then(_$_AppUser(
       id: null == id
@@ -141,6 +150,10 @@ class __$$_AppUserCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      bio: freezed == bio
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -153,7 +166,8 @@ class _$_AppUser implements _AppUser {
       required this.username,
       required this.profileType,
       required this.dateOfBirth,
-      @JsonKey(includeIfNull: false) this.createdAt});
+      @JsonKey(includeIfNull: false) this.createdAt,
+      this.bio});
 
   factory _$_AppUser.fromJson(Map<String, dynamic> json) =>
       _$$_AppUserFromJson(json);
@@ -169,10 +183,12 @@ class _$_AppUser implements _AppUser {
   @override
   @JsonKey(includeIfNull: false)
   final DateTime? createdAt;
+  @override
+  final String? bio;
 
   @override
   String toString() {
-    return 'AppUser(id: $id, username: $username, profileType: $profileType, dateOfBirth: $dateOfBirth, createdAt: $createdAt)';
+    return 'AppUser(id: $id, username: $username, profileType: $profileType, dateOfBirth: $dateOfBirth, createdAt: $createdAt, bio: $bio)';
   }
 
   @override
@@ -188,13 +204,14 @@ class _$_AppUser implements _AppUser {
             (identical(other.dateOfBirth, dateOfBirth) ||
                 other.dateOfBirth == dateOfBirth) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.bio, bio) || other.bio == bio));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, username, profileType, dateOfBirth, createdAt);
+      runtimeType, id, username, profileType, dateOfBirth, createdAt, bio);
 
   @JsonKey(ignore: true)
   @override
@@ -216,7 +233,8 @@ abstract class _AppUser implements AppUser {
       required final String username,
       required final UserProfileType profileType,
       required final DateTime dateOfBirth,
-      @JsonKey(includeIfNull: false) final DateTime? createdAt}) = _$_AppUser;
+      @JsonKey(includeIfNull: false) final DateTime? createdAt,
+      final String? bio}) = _$_AppUser;
 
   factory _AppUser.fromJson(Map<String, dynamic> json) = _$_AppUser.fromJson;
 
@@ -231,6 +249,8 @@ abstract class _AppUser implements AppUser {
   @override
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt;
+  @override
+  String? get bio;
   @override
   @JsonKey(ignore: true)
   _$$_AppUserCopyWith<_$_AppUser> get copyWith =>

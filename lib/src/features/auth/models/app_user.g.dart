@@ -14,6 +14,7 @@ _$_AppUser _$$_AppUserFromJson(Map<String, dynamic> json) => _$_AppUser(
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
+      bio: json['bio'] as String?,
     );
 
 Map<String, dynamic> _$$_AppUserToJson(_$_AppUser instance) {
@@ -31,6 +32,7 @@ Map<String, dynamic> _$$_AppUserToJson(_$_AppUser instance) {
   }
 
   writeNotNull('created_at', instance.createdAt?.toIso8601String());
+  val['bio'] = instance.bio;
   return val;
 }
 
