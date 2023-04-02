@@ -1,1 +1,2 @@
-export 'training_root.dart';
+export 'training_main.dart';
+export 'training_router.dart';

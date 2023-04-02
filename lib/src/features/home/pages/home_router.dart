@@ -5,9 +5,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/features/home/home.dart';
 
-@RoutePage()
-class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
+@RoutePage(name: 'HomeRouter')
+class HomeRouterPage extends ConsumerWidget {
+  const HomeRouterPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

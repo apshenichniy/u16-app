@@ -11,21 +11,21 @@ extension UserProfileTypeUI on UserProfileType {
       case UserProfileType.junior:
         return [
           const VideoFeedRoute(),
-          const TrainingRootRoute(),
-          const ChatRoute(),
-          const UserProfileRoute(),
+          const TrainingRouter(),
+          const ChatRouter(),
+          const ProfileRouter(),
         ];
       case UserProfileType.coach:
         return [
           const VideoFeedRoute(),
-          const ChatRoute(),
-          const UserProfileRoute(),
+          const ChatRouter(),
+          const ProfileRouter(),
         ];
       case UserProfileType.scout:
         return [
           const VideoFeedRoute(),
-          const ChatRoute(),
-          const UserProfileRoute(),
+          const ChatRouter(),
+          const ProfileRouter(),
         ];
     }
   }

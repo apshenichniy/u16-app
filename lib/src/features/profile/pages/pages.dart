@@ -1,1 +1,2 @@
-export 'user_profile.dart';
+export 'profile_main.dart';
+export 'profile_router.dart';

@@ -6,7 +6,7 @@ part of 'profile_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$followersInfoHash() => r'943dbacad748f9fbc7e4400552c93b60b9ec2cb5';
+String _$followersInfoHash() => r'ed569b3d0735b4e20b6e8e7502126b1cb91ec983';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,14 +29,14 @@ class _SystemHash {
   }
 }
 
-typedef FollowersInfoRef = AutoDisposeFutureProviderRef<FollowersInfo?>;
+typedef FollowersInfoRef = AutoDisposeFutureProviderRef<FollowersInfo>;
 
 /// See also [followersInfo].
 @ProviderFor(followersInfo)
 const followersInfoProvider = FollowersInfoFamily();
 
 /// See also [followersInfo].
-class FollowersInfoFamily extends Family<AsyncValue<FollowersInfo?>> {
+class FollowersInfoFamily extends Family<AsyncValue<FollowersInfo>> {
   /// See also [followersInfo].
   const FollowersInfoFamily();
 
@@ -74,7 +74,7 @@ class FollowersInfoFamily extends Family<AsyncValue<FollowersInfo?>> {
 }
 
 /// See also [followersInfo].
-class FollowersInfoProvider extends AutoDisposeFutureProvider<FollowersInfo?> {
+class FollowersInfoProvider extends AutoDisposeFutureProvider<FollowersInfo> {
   /// See also [followersInfo].
   FollowersInfoProvider({
     required this.userId,

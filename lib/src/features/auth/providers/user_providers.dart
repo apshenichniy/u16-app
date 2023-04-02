@@ -6,6 +6,7 @@ part 'user_providers.g.dart';
 
 @riverpod
 Future<AppUser?> user(UserRef ref, {required String userId}) async {
+  ref.cacheFor(const Duration(minutes: 15));
   return ref.read(usersRepositoryProvider).findUser(userId);
 }
 

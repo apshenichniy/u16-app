@@ -14,22 +14,10 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomeRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const HomePage(),
-      );
-    },
     RatingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const RatingPage(),
-      );
-    },
-    ChatRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ChatPage(),
       );
     },
     ChooseProfileTypeRoute.name: (routeData) {
@@ -67,39 +55,65 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SignInPage(),
       );
     },
-    TrainingRootRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const TrainingRootPage(),
-      );
-    },
-    UserProfileRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const UserProfilePage(),
-      );
-    },
     VideoFeedRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const VideoFeedPage(),
       );
     },
+    OtherProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<OtherProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: OtherProfilePage(
+          userId: args.userId,
+          key: args.key,
+        ),
+      );
+    },
+    ChatRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ChatRouterPage(),
+      );
+    },
+    ChatMainRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ChatMainPage(),
+      );
+    },
+    HomeRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeRouterPage(),
+      );
+    },
+    ProfileRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileRouterPage(),
+      );
+    },
+    ProfileMainRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileMainPage(),
+      );
+    },
+    TrainingRouter.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TrainingRouterPage(),
+      );
+    },
+    TrainingMainRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const TrainingMainPage(),
+      );
+    },
   };
-}
-
-/// generated route for
-/// [HomePage]
-class HomeRoute extends PageRouteInfo<void> {
-  const HomeRoute({List<PageRouteInfo>? children})
-      : super(
-          HomeRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'HomeRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -112,20 +126,6 @@ class RatingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'RatingRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [ChatPage]
-class ChatRoute extends PageRouteInfo<void> {
-  const ChatRoute({List<PageRouteInfo>? children})
-      : super(
-          ChatRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ChatRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -225,34 +225,6 @@ class SignInRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [TrainingRootPage]
-class TrainingRootRoute extends PageRouteInfo<void> {
-  const TrainingRootRoute({List<PageRouteInfo>? children})
-      : super(
-          TrainingRootRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'TrainingRootRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [UserProfilePage]
-class UserProfileRoute extends PageRouteInfo<void> {
-  const UserProfileRoute({List<PageRouteInfo>? children})
-      : super(
-          UserProfileRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'UserProfileRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [VideoFeedPage]
 class VideoFeedRoute extends PageRouteInfo<void> {
   const VideoFeedRoute({List<PageRouteInfo>? children})
@@ -262,6 +234,142 @@ class VideoFeedRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'VideoFeedRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OtherProfilePage]
+class OtherProfileRoute extends PageRouteInfo<OtherProfileRouteArgs> {
+  OtherProfileRoute({
+    required String userId,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          OtherProfileRoute.name,
+          args: OtherProfileRouteArgs(
+            userId: userId,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'OtherProfileRoute';
+
+  static const PageInfo<OtherProfileRouteArgs> page =
+      PageInfo<OtherProfileRouteArgs>(name);
+}
+
+class OtherProfileRouteArgs {
+  const OtherProfileRouteArgs({
+    required this.userId,
+    this.key,
+  });
+
+  final String userId;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'OtherProfileRouteArgs{userId: $userId, key: $key}';
+  }
+}
+
+/// generated route for
+/// [ChatRouterPage]
+class ChatRouter extends PageRouteInfo<void> {
+  const ChatRouter({List<PageRouteInfo>? children})
+      : super(
+          ChatRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChatRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ChatMainPage]
+class ChatMainRoute extends PageRouteInfo<void> {
+  const ChatMainRoute({List<PageRouteInfo>? children})
+      : super(
+          ChatMainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChatMainRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeRouterPage]
+class HomeRouter extends PageRouteInfo<void> {
+  const HomeRouter({List<PageRouteInfo>? children})
+      : super(
+          HomeRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileRouterPage]
+class ProfileRouter extends PageRouteInfo<void> {
+  const ProfileRouter({List<PageRouteInfo>? children})
+      : super(
+          ProfileRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileMainPage]
+class ProfileMainRoute extends PageRouteInfo<void> {
+  const ProfileMainRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileMainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileMainRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TrainingRouterPage]
+class TrainingRouter extends PageRouteInfo<void> {
+  const TrainingRouter({List<PageRouteInfo>? children})
+      : super(
+          TrainingRouter.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TrainingRouter';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [TrainingMainPage]
+class TrainingMainRoute extends PageRouteInfo<void> {
+  const TrainingMainRoute({List<PageRouteInfo>? children})
+      : super(
+          TrainingMainRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'TrainingMainRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

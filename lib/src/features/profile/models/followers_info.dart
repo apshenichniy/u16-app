@@ -5,7 +5,7 @@ part 'followers_info.freezed.dart';
 @freezed
 class FollowersInfo with _$FollowersInfo {
   const factory FollowersInfo({
-    @Default(0) int? followers,
-    @Default(0) int? subscriptions,
+    required int followers,
+    required int followings,
   }) = _FollowersInfo;
 }

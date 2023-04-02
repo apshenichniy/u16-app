@@ -3,6 +3,7 @@
     "commonError": "Error",
     "commonNext": "Next",
     "commonSubmit": "Submit",
+    "commonMessage": "Message",
     "authLogOut": "Log out",
     "authSplashMessage": "Logging in...",
     "@authSplashMessage": {
@@ -60,6 +61,7 @@
     "navBarChat": "Chat",
     "navBarProfile": "Profile",
     "profileFollowers": "Followers",
-    "profileSubscriptions": "Subscriptions",
-    "profileUserNotFound": "User not found"
+    "profileUserNotFound": "User not found",
+    "profileFollow": "Follow",
+    "profileFollowing": "Following"
 }

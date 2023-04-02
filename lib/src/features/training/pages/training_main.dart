@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class TrainingRootPage extends StatelessWidget {
-  const TrainingRootPage({super.key});
+class TrainingMainPage extends StatelessWidget {
+  const TrainingMainPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

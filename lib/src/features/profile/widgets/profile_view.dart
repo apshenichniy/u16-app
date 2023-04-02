@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
 import 'package:u16/src/core/core.dart';
 import 'package:u16/src/features/auth/auth.dart';
-import 'package:u16/src/features/profile/profile.dart';
+import 'package:u16/src/features/profile/providers/providers.dart';
 import 'package:u16/src/gen/assets.gen.dart';
 import 'package:u16/src/l10n/l10n.dart';
 
@@ -45,6 +45,64 @@ class _ProfileViewState extends ConsumerState<ProfileView>
     super.dispose();
   }
 
+  Widget _buildFollowAndMessageButtons() {
+    final followState =
+        ref.watch(followOtherUserControllerProvider(otherId: widget.userId));
+    final isFollowed = followState.valueOrNull ?? false;
+    final controller = ref.read(
+      followOtherUserControllerProvider(otherId: widget.userId).notifier,
+    );
+
+    return Row(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: ltPadding / 2),
+            child: FilledButton(
+              onPressed: followState.isLoading
+                  ? null
+                  : () {
+                      if (isFollowed) {
+                        // unfollow
+                        controller.unfollow();
+                      } else {
+                        // follow
+                        controller.follow();
+                      }
+                    },
+              style: isFollowed
+                  ? FilledButton.styleFrom(
+                      backgroundColor:
+                          Theme.of(context).colorScheme.outlineVariant,
+                      foregroundColor:
+                          Theme.of(context).colorScheme.onBackground,
+                    )
+                  : null,
+              child: Text(
+                isFollowed
+                    ? context.l10n.profileFollowing
+                    : context.l10n.profileFollow,
+              ),
+            ),
+          ),
+        ),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: ltPadding / 2),
+            child: FilledButton(
+              onPressed: () {},
+              style: FilledButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.outlineVariant,
+                foregroundColor: Theme.of(context).colorScheme.onBackground,
+              ),
+              child: Text(context.l10n.commonMessage),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget _buildProfileHeader() {
     final followersInfo =
         ref.watch(followersInfoProvider(userId: widget.userId)).valueOrNull;
@@ -71,7 +129,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
                     Column(
                       children: [
                         Text(
-                          '${followersInfo?.followers ?? 0}',
+                          '${followersInfo?.followers ?? ''}',
                           style: Theme.of(context).customTheme.tHeading6Inter,
                         ),
                         Text(
@@ -83,11 +141,11 @@ class _ProfileViewState extends ConsumerState<ProfileView>
                     Column(
                       children: [
                         Text(
-                          '${followersInfo?.subscriptions ?? 0}',
+                          '${followersInfo?.followings ?? ''}',
                           style: Theme.of(context).customTheme.tHeading6Inter,
                         ),
                         Text(
-                          context.l10n.profileSubscriptions,
+                          context.l10n.profileFollowing,
                           style: Theme.of(context).customTheme.tHeading7,
                         ),
                       ],
@@ -103,7 +161,8 @@ class _ProfileViewState extends ConsumerState<ProfileView>
               'my bio\nline 1\nline2',
               style: Theme.of(context).customTheme.tHeading6,
             ),
-          )
+          ),
+          if (!widget.isCurrentUser) _buildFollowAndMessageButtons()
         ],
       ),
     );
@@ -187,31 +246,33 @@ class _ProfileViewState extends ConsumerState<ProfileView>
         final pinnedHeaderHeight =
             MediaQuery.of(context).padding.top + kToolbarHeight;
 
-        return PullToRefreshNotification(
-          pullBackDuration: pullToRefreshPullbackDuration,
-          maxDragOffset: pullToRefreshMaxDragOffset,
-          onRefresh: _refreshUser,
-          child: ExtendedNestedScrollView(
-            onlyOneScrollInBody: true,
-            pinnedHeaderSliverHeightBuilder: () => pinnedHeaderHeight,
-            headerSliverBuilder: (context, _) {
-              return [
-                _buildAppBar(user),
-                PullToRefreshContainer(
-                  (info) => SliverToBoxAdapter(
-                    child: PullToRefreshIndicator(info: info),
+        return Scaffold(
+          body: PullToRefreshNotification(
+            pullBackDuration: pullToRefreshPullbackDuration,
+            maxDragOffset: pullToRefreshMaxDragOffset,
+            onRefresh: _refreshUser,
+            child: ExtendedNestedScrollView(
+              onlyOneScrollInBody: true,
+              pinnedHeaderSliverHeightBuilder: () => pinnedHeaderHeight,
+              headerSliverBuilder: (context, _) {
+                return [
+                  _buildAppBar(user),
+                  PullToRefreshContainer(
+                    (info) => SliverToBoxAdapter(
+                      child: PullToRefreshIndicator(info: info),
+                    ),
                   ),
-                ),
-                SliverToBoxAdapter(
-                  child: _buildProfileHeader(),
-                ),
-              ];
-            },
-            body: Column(
-              children: [
-                _buildTabBar(),
-                _buildTabViews(),
-              ],
+                  SliverToBoxAdapter(
+                    child: _buildProfileHeader(),
+                  ),
+                ];
+              },
+              body: Column(
+                children: [
+                  _buildTabBar(),
+                  _buildTabViews(),
+                ],
+              ),
             ),
           ),
         );

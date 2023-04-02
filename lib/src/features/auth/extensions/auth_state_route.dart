@@ -4,7 +4,7 @@ import 'package:u16/src/features/auth/auth.dart';
 
 extension AuthenticationStateRoute on AuthenticationState {
   PageRouteInfo get route => when(
-        authenticated: (_) => const HomeRoute(),
+        authenticated: (_) => const HomeRouter(),
         unauthenticated: SignInRoute.new,
         ageCheckRequired: AgeCheckRoute.new,
         userProfileRequired: ChooseProfileTypeRoute.new,

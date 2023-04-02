@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FollowersInfo {
-  int? get followers => throw _privateConstructorUsedError;
-  int? get subscriptions => throw _privateConstructorUsedError;
+  int get followers => throw _privateConstructorUsedError;
+  int get followings => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FollowersInfoCopyWith<FollowersInfo> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $FollowersInfoCopyWith<$Res> {
           FollowersInfo value, $Res Function(FollowersInfo) then) =
       _$FollowersInfoCopyWithImpl<$Res, FollowersInfo>;
   @useResult
-  $Res call({int? followers, int? subscriptions});
+  $Res call({int followers, int followings});
 }
 
 /// @nodoc
@@ -46,18 +46,18 @@ class _$FollowersInfoCopyWithImpl<$Res, $Val extends FollowersInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? followers = freezed,
-    Object? subscriptions = freezed,
+    Object? followers = null,
+    Object? followings = null,
   }) {
     return _then(_value.copyWith(
-      followers: freezed == followers
+      followers: null == followers
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      subscriptions: freezed == subscriptions
-          ? _value.subscriptions
-          : subscriptions // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
+      followings: null == followings
+          ? _value.followings
+          : followings // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$_FollowersInfoCopyWith<$Res>
       __$$_FollowersInfoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? followers, int? subscriptions});
+  $Res call({int followers, int followings});
 }
 
 /// @nodoc
@@ -84,18 +84,18 @@ class __$$_FollowersInfoCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? followers = freezed,
-    Object? subscriptions = freezed,
+    Object? followers = null,
+    Object? followings = null,
   }) {
     return _then(_$_FollowersInfo(
-      followers: freezed == followers
+      followers: null == followers
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
-              as int?,
-      subscriptions: freezed == subscriptions
-          ? _value.subscriptions
-          : subscriptions // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
+      followings: null == followings
+          ? _value.followings
+          : followings // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -103,18 +103,16 @@ class __$$_FollowersInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FollowersInfo implements _FollowersInfo {
-  const _$_FollowersInfo({this.followers = 0, this.subscriptions = 0});
+  const _$_FollowersInfo({required this.followers, required this.followings});
 
   @override
-  @JsonKey()
-  final int? followers;
+  final int followers;
   @override
-  @JsonKey()
-  final int? subscriptions;
+  final int followings;
 
   @override
   String toString() {
-    return 'FollowersInfo(followers: $followers, subscriptions: $subscriptions)';
+    return 'FollowersInfo(followers: $followers, followings: $followings)';
   }
 
   @override
@@ -124,12 +122,12 @@ class _$_FollowersInfo implements _FollowersInfo {
             other is _$_FollowersInfo &&
             (identical(other.followers, followers) ||
                 other.followers == followers) &&
-            (identical(other.subscriptions, subscriptions) ||
-                other.subscriptions == subscriptions));
+            (identical(other.followings, followings) ||
+                other.followings == followings));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, followers, subscriptions);
+  int get hashCode => Object.hash(runtimeType, followers, followings);
 
   @JsonKey(ignore: true)
   @override
@@ -140,12 +138,13 @@ class _$_FollowersInfo implements _FollowersInfo {
 
 abstract class _FollowersInfo implements FollowersInfo {
   const factory _FollowersInfo(
-      {final int? followers, final int? subscriptions}) = _$_FollowersInfo;
+      {required final int followers,
+      required final int followings}) = _$_FollowersInfo;
 
   @override
-  int? get followers;
+  int get followers;
   @override
-  int? get subscriptions;
+  int get followings;
   @override
   @JsonKey(ignore: true)
   _$$_FollowersInfoCopyWith<_$_FollowersInfo> get copyWith =>

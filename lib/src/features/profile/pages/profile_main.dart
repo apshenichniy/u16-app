@@ -5,8 +5,8 @@ import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/features/profile/profile.dart';
 
 @RoutePage()
-class UserProfilePage extends ConsumerWidget {
-  const UserProfilePage({super.key});
+class ProfileMainPage extends ConsumerWidget {
+  const ProfileMainPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentUserId = ref.watch(currentUserIdProvider)!;

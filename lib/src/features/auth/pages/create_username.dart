@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:u16/src/core/core.dart';
-import 'package:u16/src/core/widgets/unfocus.dart';
 import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/l10n/l10n.dart';
 
@@ -51,7 +50,7 @@ class _CreateUsernamePageState extends ConsumerState<CreateUsernamePage> {
       ..listen(authenticationControllerProvider, (_, next) {
         next.whenData(
           (state) => state.whenOrNull(
-            authenticated: (_) => context.replaceRoute(const HomeRoute()),
+            authenticated: (_) => context.replaceRoute(const HomeRouter()),
           ),
         );
       });

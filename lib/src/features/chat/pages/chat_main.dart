@@ -5,10 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:u16/src/core/core.dart';
 import 'package:u16/src/features/auth/auth.dart';
+import 'package:u16/src/features/profile/widgets/profile_view.dart';
 
 @RoutePage()
-class ChatPage extends ConsumerWidget {
-  const ChatPage({super.key});
+class ChatMainPage extends ConsumerWidget {
+  const ChatMainPage({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -42,31 +43,20 @@ class ChatPage extends ConsumerWidget {
                 Gaps.vGap10,
                 FilledButton(
                   onPressed: () async {
-                    final response =
-                        await ref.read(supabaseClientProvider).functions.invoke(
-                      'authenticate',
-                      body: {},
-                    );
-
-                    print('!!!!!!!!! ${response.data}');
-
-                    //log(response.data);
-                  },
-                  child: const Text('call authenticate'),
-                ),
-                Gaps.vGap10,
-                FilledButton(
-                  onPressed: () async {
-                    ref.invalidate(currentUserProvider);
-                  },
-                  child: const Text('Invalidate Current user'),
-                ),
-                Gaps.vGap10,
-                FilledButton(
-                  onPressed: () async {
                     ref.invalidate(authenticationControllerProvider);
                   },
                   child: const Text('Invalidate auth'),
+                ),
+                Gaps.vGap10,
+                FilledButton(
+                  onPressed: () async {
+                    await context.router.pushWidget(
+                      const ProfileView(
+                        userId: 'fe40fbe6-02cf-4e37-9289-b17a031bf25d',
+                      ),
+                    );
+                  },
+                  child: const Text('Show user2'),
                 ),
               ],
             ),

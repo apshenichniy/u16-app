@@ -5,6 +5,7 @@ import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/features/chat/chat.dart';
 import 'package:u16/src/features/feed/feed.dart';
 import 'package:u16/src/features/home/home.dart';
+import 'package:u16/src/features/profile/pages/other_profile_page.dart';
 import 'package:u16/src/features/profile/profile.dart';
 import 'package:u16/src/features/rating/rating.dart';
 import 'package:u16/src/features/training/training.dart';
@@ -19,8 +20,6 @@ class AppRouter extends _$AppRouter {
 
   @override
   final List<AutoRoute> routes = [
-    //AutoRoute(page: DemoSplashRoute.page, path: '/'),
-
     AutoRoute(page: InitialSplashRoute.page, path: '/'),
     AutoRoute(page: SignInRoute.page),
     AutoRoute(page: AgeCheckRoute.page),
@@ -28,13 +27,30 @@ class AppRouter extends _$AppRouter {
     AutoRoute(page: ChooseProfileTypeRoute.page),
     AutoRoute(
       path: '/',
-      page: HomeRoute.page,
+      page: HomeRouter.page,
       children: [
         AutoRoute(page: VideoFeedRoute.page),
-        AutoRoute(page: TrainingRootRoute.page),
-        AutoRoute(page: RatingRoute.page),
-        AutoRoute(page: ChatRoute.page),
-        AutoRoute(page: UserProfileRoute.page),
+        AutoRoute(
+          path: 'training',
+          page: TrainingRouter.page,
+          children: [
+            AutoRoute(page: TrainingMainRoute.page, path: ''),
+          ],
+        ),
+        AutoRoute(
+          path: 'chat',
+          page: ChatRouter.page,
+          children: [
+            AutoRoute(page: ChatMainRoute.page, path: ''),
+          ],
+        ),
+        AutoRoute(
+          path: 'profile',
+          page: ProfileRouter.page,
+          children: [
+            AutoRoute(page: ProfileMainRoute.page, path: ''),
+          ],
+        ),
       ],
     ),
   ];
