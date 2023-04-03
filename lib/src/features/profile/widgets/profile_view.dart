@@ -7,6 +7,7 @@ import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
 import 'package:u16/src/core/core.dart';
 import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/features/profile/providers/providers.dart';
+import 'package:u16/src/features/profile/widgets/widgets.dart';
 import 'package:u16/src/gen/assets.gen.dart';
 import 'package:u16/src/l10n/l10n.dart';
 
@@ -199,29 +200,46 @@ class _ProfileViewState extends ConsumerState<ProfileView>
     );
   }
 
-  Widget _buildTabViews() {
+  Widget _buildTabViews(AppUser user) {
     return Expanded(
       child: TabBarView(
         controller: _tabController,
-        children: _tabs.map((tab) {
-          return TabPageWrapper(
-            child: ListView.builder(
-              physics: const ClampingScrollPhysics(),
-              itemBuilder: (_, index) => ListTile(
-                title: Text('${tab.name} - $index'),
-              ),
-            ),
-          );
-        }).toList(),
+        children: [
+          const TeamTabView(),
+          const VideoCollectionTabView(),
+          PersonalDetailsTabView(
+            user: user,
+            isCurrentUser: widget.isCurrentUser,
+          ),
+          if (widget.isCurrentUser) const NotificationsTabView(),
+        ],
       ),
     );
   }
 
   Widget _buildAppBar(AppUser user) {
+    const daysStreak = 51;
+
     return SliverAppBar(
       pinned: true,
       centerTitle: false,
       title: Text(user.username),
+      actions: [
+        if (widget.isCurrentUser)
+          Padding(
+            padding: const EdgeInsets.only(right: ltPadding),
+            child: Row(
+              children: [
+                SvgPicture.asset(Assets.images.daysStreak),
+                Gaps.hGap8,
+                Text(
+                  '$daysStreak ${context.l10n.commonDays}',
+                  style: Theme.of(context).customTheme.tHeading7Medium,
+                ),
+              ],
+            ),
+          )
+      ],
     );
   }
 
@@ -272,7 +290,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
               body: Column(
                 children: [
                   _buildTabBar(),
-                  _buildTabViews(),
+                  _buildTabViews(user),
                 ],
               ),
             ),
@@ -295,9 +313,15 @@ enum _ProfileTabs {
   notifications,
 }
 
-const _currentUserTabs = _ProfileTabs.values;
+const _currentUserTabs = <_ProfileTabs>[
+  // _ProfileTabs.collection,
+  _ProfileTabs.team,
+  _ProfileTabs.video,
+  _ProfileTabs.personalDetails,
+  _ProfileTabs.notifications,
+];
+
 const _userTabs = <_ProfileTabs>[
-  _ProfileTabs.collection,
   _ProfileTabs.team,
   _ProfileTabs.video,
   _ProfileTabs.personalDetails,

@@ -24,7 +24,7 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       fontWeight: FontWeight.w600,
     ),
     this.tHeading4 = const TextStyle(
-      //fontFamily: 'Inter',
+      fontFamily: 'Inter',
       fontSize: 20,
       fontWeight: FontWeight.w600,
     ),
@@ -59,12 +59,12 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
       fontWeight: FontWeight.w500,
     ),
     this.tHeading6 = const TextStyle(
-      //fontFamily: 'RedHatDisplay',
+      // fontFamily: 'RedHatDisplay',
       fontSize: 16,
       fontWeight: FontWeight.w500,
     ),
     this.tHeading6Regular = const TextStyle(
-      //fontFamily: 'RedHatDisplay',
+      // fontFamily: 'RedHatDisplay',
       fontSize: 16,
       fontWeight: FontWeight.w400,
     ),

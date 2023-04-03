@@ -26,6 +26,9 @@ mixin _$AppUser {
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  num? get height => throw _privateConstructorUsedError;
+  num? get weight => throw _privateConstructorUsedError;
+  GenderType? get gender => throw _privateConstructorUsedError;
   String? get bio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,6 +47,9 @@ abstract class $AppUserCopyWith<$Res> {
       UserProfileType profileType,
       DateTime dateOfBirth,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
+      num? height,
+      num? weight,
+      GenderType? gender,
       String? bio});
 }
 
@@ -65,6 +71,9 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
     Object? profileType = null,
     Object? dateOfBirth = null,
     Object? createdAt = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
+    Object? gender = freezed,
     Object? bio = freezed,
   }) {
     return _then(_value.copyWith(
@@ -88,6 +97,18 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as num?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as num?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as GenderType?,
       bio: freezed == bio
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
@@ -109,6 +130,9 @@ abstract class _$$_AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       UserProfileType profileType,
       DateTime dateOfBirth,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
+      num? height,
+      num? weight,
+      GenderType? gender,
       String? bio});
 }
 
@@ -127,6 +151,9 @@ class __$$_AppUserCopyWithImpl<$Res>
     Object? profileType = null,
     Object? dateOfBirth = null,
     Object? createdAt = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
+    Object? gender = freezed,
     Object? bio = freezed,
   }) {
     return _then(_$_AppUser(
@@ -150,6 +177,18 @@ class __$$_AppUserCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      height: freezed == height
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as num?,
+      weight: freezed == weight
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as num?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as GenderType?,
       bio: freezed == bio
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
@@ -167,6 +206,9 @@ class _$_AppUser implements _AppUser {
       required this.profileType,
       required this.dateOfBirth,
       @JsonKey(includeIfNull: false) this.createdAt,
+      this.height,
+      this.weight,
+      this.gender,
       this.bio});
 
   factory _$_AppUser.fromJson(Map<String, dynamic> json) =>
@@ -184,11 +226,17 @@ class _$_AppUser implements _AppUser {
   @JsonKey(includeIfNull: false)
   final DateTime? createdAt;
   @override
+  final num? height;
+  @override
+  final num? weight;
+  @override
+  final GenderType? gender;
+  @override
   final String? bio;
 
   @override
   String toString() {
-    return 'AppUser(id: $id, username: $username, profileType: $profileType, dateOfBirth: $dateOfBirth, createdAt: $createdAt, bio: $bio)';
+    return 'AppUser(id: $id, username: $username, profileType: $profileType, dateOfBirth: $dateOfBirth, createdAt: $createdAt, height: $height, weight: $weight, gender: $gender, bio: $bio)';
   }
 
   @override
@@ -205,13 +253,16 @@ class _$_AppUser implements _AppUser {
                 other.dateOfBirth == dateOfBirth) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.height, height) || other.height == height) &&
+            (identical(other.weight, weight) || other.weight == weight) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.bio, bio) || other.bio == bio));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, username, profileType, dateOfBirth, createdAt, bio);
+  int get hashCode => Object.hash(runtimeType, id, username, profileType,
+      dateOfBirth, createdAt, height, weight, gender, bio);
 
   @JsonKey(ignore: true)
   @override
@@ -234,6 +285,9 @@ abstract class _AppUser implements AppUser {
       required final UserProfileType profileType,
       required final DateTime dateOfBirth,
       @JsonKey(includeIfNull: false) final DateTime? createdAt,
+      final num? height,
+      final num? weight,
+      final GenderType? gender,
       final String? bio}) = _$_AppUser;
 
   factory _AppUser.fromJson(Map<String, dynamic> json) = _$_AppUser.fromJson;
@@ -249,6 +303,12 @@ abstract class _AppUser implements AppUser {
   @override
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt;
+  @override
+  num? get height;
+  @override
+  num? get weight;
+  @override
+  GenderType? get gender;
   @override
   String? get bio;
   @override

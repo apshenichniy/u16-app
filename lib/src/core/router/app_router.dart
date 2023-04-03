@@ -5,7 +5,6 @@ import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/features/chat/chat.dart';
 import 'package:u16/src/features/feed/feed.dart';
 import 'package:u16/src/features/home/home.dart';
-import 'package:u16/src/features/profile/pages/other_profile_page.dart';
 import 'package:u16/src/features/profile/profile.dart';
 import 'package:u16/src/features/rating/rating.dart';
 import 'package:u16/src/features/training/training.dart';

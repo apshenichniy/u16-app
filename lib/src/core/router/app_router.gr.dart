@@ -61,16 +61,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const VideoFeedPage(),
       );
     },
-    OtherProfileRoute.name: (routeData) {
-      final args = routeData.argsAs<OtherProfileRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: OtherProfilePage(
-          userId: args.userId,
-          key: args.key,
-        ),
-      );
-    },
     ChatRouter.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -236,44 +226,6 @@ class VideoFeedRoute extends PageRouteInfo<void> {
   static const String name = 'VideoFeedRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [OtherProfilePage]
-class OtherProfileRoute extends PageRouteInfo<OtherProfileRouteArgs> {
-  OtherProfileRoute({
-    required String userId,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          OtherProfileRoute.name,
-          args: OtherProfileRouteArgs(
-            userId: userId,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'OtherProfileRoute';
-
-  static const PageInfo<OtherProfileRouteArgs> page =
-      PageInfo<OtherProfileRouteArgs>(name);
-}
-
-class OtherProfileRouteArgs {
-  const OtherProfileRouteArgs({
-    required this.userId,
-    this.key,
-  });
-
-  final String userId;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'OtherProfileRouteArgs{userId: $userId, key: $key}';
-  }
 }
 
 /// generated route for

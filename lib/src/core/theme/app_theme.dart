@@ -40,11 +40,12 @@ class AppTheme {
       ],
       appBarTheme: AppBarTheme(
         titleTextStyle:
-            customTheme.tHeading3?.copyWith(color: colorScheme.onBackground),
+            customTheme.tHeading4?.copyWith(color: colorScheme.onBackground),
         surfaceTintColor: colorScheme.background,
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: colorScheme.background,
+        surfaceTintColor: colorScheme.background,
         elevation: 1,
       ),
       filledButtonTheme: FilledButtonThemeData(

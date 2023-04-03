@@ -4,6 +4,11 @@
     "commonNext": "Next",
     "commonSubmit": "Submit",
     "commonMessage": "Message",
+    "commonDays": "days",
+    "commonMale": "Male",
+    "commonFemale": "Female",
+    "commonCm": "cm",
+    "commonKg": "kg",
     "authLogOut": "Log out",
     "authSplashMessage": "Logging in...",
     "@authSplashMessage": {
@@ -63,5 +68,15 @@
     "profileFollowers": "Followers",
     "profileUserNotFound": "User not found",
     "profileFollow": "Follow",
-    "profileFollowing": "Following"
+    "profileFollowing": "Following",
+    "personalDetails": "Personal details",
+    "personalDetailsAge": "Age",
+    "personalDetailsDateOfBirth": "Date of birth",
+    "personalDetailsGender": "Gender",
+    "personalDetailsHeight": "Height",
+    "personalDetailsWeight": "Weight",
+    "personalDetailsStrongSides": "My strong sides",
+    "personalDetailsCountry": "Country",
+    "personalDetailsSchool": "School/Academy",
+    "personalDetailsLanguage": "Language"
 }

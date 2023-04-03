@@ -14,6 +14,9 @@ _$_AppUser _$$_AppUserFromJson(Map<String, dynamic> json) => _$_AppUser(
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
+      height: json['height'] as num?,
+      weight: json['weight'] as num?,
+      gender: $enumDecodeNullable(_$GenderTypeEnumMap, json['gender']),
       bio: json['bio'] as String?,
     );
 
@@ -32,6 +35,9 @@ Map<String, dynamic> _$$_AppUserToJson(_$_AppUser instance) {
   }
 
   writeNotNull('created_at', instance.createdAt?.toIso8601String());
+  val['height'] = instance.height;
+  val['weight'] = instance.weight;
+  val['gender'] = _$GenderTypeEnumMap[instance.gender];
   val['bio'] = instance.bio;
   return val;
 }
@@ -40,4 +46,9 @@ const _$UserProfileTypeEnumMap = {
   UserProfileType.junior: 'junior',
   UserProfileType.coach: 'coach',
   UserProfileType.scout: 'scout',
+};
+
+const _$GenderTypeEnumMap = {
+  GenderType.male: 'male',
+  GenderType.female: 'female',
 };

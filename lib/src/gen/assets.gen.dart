@@ -37,6 +37,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/collection_tab_icon.svg
   String get collectionTabIcon => 'assets/images/collection_tab_icon.svg';
 
+  /// File path: assets/images/days_streak.svg
+  String get daysStreak => 'assets/images/days_streak.svg';
+
+  /// File path: assets/images/edit_icon.svg
+  String get editIcon => 'assets/images/edit_icon.svg';
+
   /// File path: assets/images/google_icon.svg
   String get googleIcon => 'assets/images/google_icon.svg';
 
@@ -96,6 +102,8 @@ class $AssetsImagesGen {
         chatActive,
         coachProfileType,
         collectionTabIcon,
+        daysStreak,
+        editIcon,
         googleIcon,
         home,
         homeActive,
