@@ -13,3 +13,7 @@ abstract class Gaps {
     height: ltPadding,
   );
 }
+
+const divider1 = Divider(
+  height: 1,
+);

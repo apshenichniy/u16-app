@@ -72,7 +72,7 @@ class _CreateUsernamePageState extends ConsumerState<CreateUsernamePage> {
                 ),
                 Text(
                   context.l10n.createUsernameChooseUsername,
-                  style: theme.tHeading6Regular,
+                  style: theme.tHeading6,
                 ),
                 Gaps.vGap10,
                 TextField(

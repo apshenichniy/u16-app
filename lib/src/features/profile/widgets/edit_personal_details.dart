@@ -1,11 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:u16/src/gen/assets.gen.dart';
+import 'package:u16/src/core/core.dart';
+import 'package:u16/src/features/auth/models/app_user.dart';
+import 'package:u16/src/features/profile/widgets/widgets.dart';
+import 'package:u16/src/l10n/l10n.dart';
 
 class EditPersonalDetails extends StatefulWidget {
-  const EditPersonalDetails({super.key});
+  const EditPersonalDetails({required this.user, super.key});
+  final AppUser user;
 
   @override
   State<EditPersonalDetails> createState() => _EditPersonalDetailsState();
@@ -20,53 +22,40 @@ class _EditPersonalDetailsState extends State<EditPersonalDetails> {
           icon: const Icon(Icons.close),
           onPressed: () => context.popRoute(),
         ),
-        actions: const [
+        actions: [
           TextButton(
-            onPressed: null,
-            child: Text('Save'),
-          ),
+            onPressed: () {},
+            child: Text(context.l10n.commonSave),
+          )
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Center(
-              child: Stack(
-                alignment: Alignment.topCenter,
-                clipBehavior: Clip.none,
-                children: [
-                  CircleAvatar(
-                    radius: 40,
-                    child: ClipOval(
-                      child: CachedNetworkImage(
-                        imageUrl: 'https://i.pravatar.cc/300',
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: -8,
-                    bottom: 0,
-                    child: SizedBox.square(
-                      dimension: 30,
-                      child: IconButton(
-                        padding: EdgeInsets.zero,
-                        onPressed: () {},
-                        icon: SvgPicture.asset(Assets.images.editIcon),
-                        style: IconButton.styleFrom(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.background,
-                          shadowColor:
-                              Theme.of(context).colorScheme.onBackground,
-                          elevation: 1,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: ltPadding),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const Avatar(
+                imageUrl: 'https://i.pravatar.cc/300',
+                showEditButton: true,
               ),
-            ),
-          ],
+              Gaps.vGapPadding,
+              divider1,
+              PropertyTile(
+                title: context.l10n.createUsernameUsername,
+                value: widget.user.username,
+                onTap: () async {
+                  final username = await context.router.pushWidget<String>(
+                    EditUsername(
+                      value: widget.user.username,
+                    ),
+                  );
+                },
+              ),
+              divider1,
+              //const PropertyTile(),
+            ],
+          ),
         ),
       ),
     );

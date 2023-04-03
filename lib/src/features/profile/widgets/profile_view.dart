@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -116,13 +115,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CircleAvatar(
-                radius: 40,
-                child: ClipOval(
-                  child:
-                      CachedNetworkImage(imageUrl: 'https://i.pravatar.cc/300'),
-                ),
-              ),
+              const Avatar(imageUrl: 'https://i.pravatar.cc/300'),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

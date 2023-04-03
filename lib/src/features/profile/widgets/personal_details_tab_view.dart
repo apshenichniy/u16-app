@@ -23,28 +23,6 @@ class PersonalDetailsTabView extends StatefulWidget {
 }
 
 class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
-  Widget _buildPropertyRow({required String title, required String value}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: Theme.of(context)
-                .customTheme
-                .tHeading6
-                ?.copyWith(fontWeight: FontWeight.w600),
-          ),
-          Text(
-            value,
-            style: Theme.of(context).customTheme.tHeading6,
-          ),
-        ],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -64,7 +42,9 @@ class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
                   IconButton(
                     onPressed: () {
                       context.router.pushWidget(
-                        const EditPersonalDetails(),
+                        EditPersonalDetails(
+                          user: widget.user,
+                        ),
                         transitionBuilder: TransitionsBuilders.slideBottom,
                         transitionDuration: const Duration(milliseconds: 150),
                       );
@@ -76,53 +56,43 @@ class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
             Gaps.vGapPadding,
             // 'date of birth' for current user
             if (widget.isCurrentUser)
-              _buildPropertyRow(
+              PropertyTile(
                 title: context.l10n.personalDetailsDateOfBirth,
                 value: DateFormat.yMMMd().format(widget.user.dateOfBirth),
               )
             else
               // 'age' for other user
-              _buildPropertyRow(
+              PropertyTile(
                 title: context.l10n.personalDetailsAge,
                 value:
                     AgeCalculator.age(widget.user.dateOfBirth).years.toString(),
               ),
-            const Divider(),
-            _buildPropertyRow(
+            divider1,
+            PropertyTile(
               title: context.l10n.personalDetailsGender,
-              value: widget.user.gender?.localized(context) ?? '-',
+              value: widget.user.gender?.localized(context),
             ),
-            const Divider(),
-            _buildPropertyRow(
+            divider1,
+            PropertyTile(
               title: context.l10n.personalDetailsHeight,
-              value: widget.user.height?.toString() ?? '-',
+              value:
+                  widget.user.height != null ? '${widget.user.height} cm' : '',
             ),
-            const Divider(),
-            _buildPropertyRow(
+            divider1,
+            PropertyTile(
               title: context.l10n.personalDetailsWeight,
-              value: widget.user.gender?.localized(context) ?? '-',
+              value:
+                  widget.user.weight != null ? '${widget.user.weight} kg' : '',
             ),
-            const Divider(),
-            _buildPropertyRow(
-              title: context.l10n.personalDetailsStrongSides,
-              value: '-',
-            ),
-            const Divider(),
-            _buildPropertyRow(
-              title: context.l10n.personalDetailsCountry,
-              value: '-',
-            ),
-            const Divider(),
-            _buildPropertyRow(
-              title: context.l10n.personalDetailsSchool,
-              value: '-',
-            ),
-            const Divider(),
-            _buildPropertyRow(
-              title: context.l10n.personalDetailsLanguage,
-              value: '-',
-            ),
-            const Divider(),
+            divider1,
+            PropertyTile(title: context.l10n.personalDetailsStrongSides),
+            divider1,
+            PropertyTile(title: context.l10n.personalDetailsCountry),
+            divider1,
+            PropertyTile(title: context.l10n.personalDetailsSchool),
+            divider1,
+            PropertyTile(title: context.l10n.personalDetailsLanguage),
+            divider1,
           ],
         ),
       ),

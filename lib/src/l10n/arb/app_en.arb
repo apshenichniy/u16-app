@@ -7,6 +7,7 @@
     "commonDays": "days",
     "commonMale": "Male",
     "commonFemale": "Female",
+    "commonSave": "Save",
     "commonCm": "cm",
     "commonKg": "kg",
     "authLogOut": "Log out",
@@ -78,5 +79,9 @@
     "personalDetailsStrongSides": "My strong sides",
     "personalDetailsCountry": "Country",
     "personalDetailsSchool": "School/Academy",
-    "personalDetailsLanguage": "Language"
+    "personalDetailsLanguage": "Language",
+    "personalDetailsYourGender": "Your gender",
+    "personalDetailsYourHeight": "Your height (cm)",
+    "personalDetailsYourWeight": "Your weight (kg)",
+    "personalDetailsYourStrongSides": "Your strong sides"
 }

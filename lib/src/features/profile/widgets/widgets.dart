@@ -1,6 +1,9 @@
+export 'avatar.dart';
 export 'edit_personal_details.dart';
+export 'edit_username.dart';
 export 'notifications_tab_view.dart';
 export 'personal_details_tab_view.dart';
 export 'profile_view.dart';
+export 'property_tile.dart';
 export 'team_tab_view.dart';
 export 'video_collection_tab_view.dart';
