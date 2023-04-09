@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:u16/src/core/core.dart';
-import 'package:u16/src/core/widgets/unfocus.dart';
 import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/l10n/l10n.dart';
 import 'package:validators/validators.dart';
@@ -101,7 +100,7 @@ class _SignUpWithEmailPageState extends ConsumerState<SignUpWithEmailPage> {
                     padding: const EdgeInsets.symmetric(vertical: ltPadding),
                     child: Text(
                       context.l10n.signUpEnterEmail,
-                      style: Theme.of(context).customTheme.tHeading6Regular,
+                      //style: Theme.of(context).customTheme.tHeading6Regular,
                     ),
                   ),
                   Form(
@@ -130,7 +129,7 @@ class _SignUpWithEmailPageState extends ConsumerState<SignUpWithEmailPage> {
                   ),
                   Text(
                     context.l10n.signUpChoosePassword,
-                    style: Theme.of(context).customTheme.tHeading6Regular,
+                    // style: Theme.of(context).customTheme.tHeading6Regular,
                   ),
                   Gaps.vGapPadding,
                   Form(

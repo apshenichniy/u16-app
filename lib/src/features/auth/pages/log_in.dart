@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:u16/src/core/core.dart';
-import 'package:u16/src/core/widgets/unfocus.dart';
 import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/l10n/l10n.dart';
 import 'package:validators/validators.dart';
@@ -66,7 +65,7 @@ class _LogInPageState extends ConsumerState<LogInPage> {
                 children: [
                   Text(
                     context.l10n.logInEnterEmailAndPassword,
-                    style: Theme.of(context).customTheme.tHeading6Regular,
+                    //style: Theme.of(context).customTheme.tHeading6Regular,
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(

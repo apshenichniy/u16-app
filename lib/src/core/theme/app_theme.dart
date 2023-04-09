@@ -1,66 +1,75 @@
-import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:u16/src/core/theme/custom_theme.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:u16/src/core/theme/app_colors.dart';
+import 'package:u16/src/gen/fonts.gen.dart';
 
-// Define your seed colors.
-const Color primarySeedColor = Color(0xFF4083E7);
-const Color secondarySeedColor = Color(0xFFFFD15B);
-const Color tertiarySeedColor = Color(0xFFA66CFF);
+part 'app_theme.g.dart';
 
-// Make a light ColorScheme from the seeds.
-final ColorScheme lightColorScheme = SeedColorScheme.fromSeeds(
-  primary: primarySeedColor,
-  primaryKey: primarySeedColor,
-  secondary: secondarySeedColor,
-  secondaryKey: secondarySeedColor,
-  tertiaryKey: tertiarySeedColor,
+final _lightColorScheme = ColorScheme.fromSeed(
+  seedColor: AppColors.blueNavigation,
+  primary: AppColors.blue,
+  background: AppColors.white,
+  onBackground: AppColors.black,
 );
 
-// Make a dark ColorScheme from the seeds.
-final ColorScheme darkColorScheme = SeedColorScheme.fromSeeds(
-  brightness: Brightness.dark,
-  primaryKey: primarySeedColor,
-  secondaryKey: secondarySeedColor,
-  tertiaryKey: tertiarySeedColor,
-);
+final _borderRadius = BorderRadius.circular(10);
 
 class AppTheme {
   ThemeData _buildTheme(ColorScheme colorScheme) {
-    const customTheme = CustomTheme();
-
     return ThemeData(
-      fontFamily: GoogleFonts.redHatDisplay().fontFamily,
+      fontFamily: FontFamily.redHatDisplay,
       useMaterial3: true,
       colorScheme: colorScheme,
       splashFactory: NoSplash.splashFactory,
       scaffoldBackgroundColor: colorScheme.background,
-      extensions: const <ThemeExtension<CustomTheme>>[
-        customTheme,
-      ],
       appBarTheme: AppBarTheme(
-        titleTextStyle:
-            customTheme.tHeading4?.copyWith(color: colorScheme.onBackground),
+        foregroundColor: colorScheme.onBackground,
         surfaceTintColor: colorScheme.background,
+        backgroundColor: colorScheme.background,
+        elevation: 0,
+      ),
+      tabBarTheme: const TabBarTheme(
+        indicatorColor: AppColors.blueNavigation,
+        indicatorSize: TabBarIndicatorSize.tab,
       ),
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: colorScheme.background,
-        surfaceTintColor: colorScheme.background,
-        elevation: 1,
+        elevation: 0,
+        labelTextStyle: MaterialStateProperty.resolveWith((states) {
+          final color = states.contains(MaterialState.selected)
+              ? AppColors.blueNavigation
+              : AppColors.gray;
+
+          return TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            color: color,
+            fontFamily: FontFamily.redHatDisplay,
+          );
+        }),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
+          minimumSize: const Size.fromHeight(44),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: _borderRadius,
           ),
-          padding: const EdgeInsets.symmetric(vertical: 12),
-          textStyle: customTheme.tHeading6Inter,
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            fontFamily: FontFamily.inter,
+          ),
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: customTheme.tHeading6Inter,
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          shape: RoundedRectangleBorder(
+            borderRadius: _borderRadius,
+          ),
+          textStyle: const TextStyle(
+            fontSize: 16,
+            fontFamily: FontFamily.inter,
+          ),
         ),
       ),
       inputDecorationTheme: InputDecorationTheme(
@@ -69,7 +78,7 @@ class AppTheme {
           vertical: 9,
           horizontal: 12,
         ),
-        fillColor: colorScheme.surfaceVariant,
+        fillColor: AppColors.superLightGray,
         filled: true,
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -78,29 +87,26 @@ class AppTheme {
           ),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: _borderRadius,
           borderSide: BorderSide(
             color: colorScheme.error,
           ),
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: _borderRadius,
           borderSide: BorderSide.none,
         ),
-        helperStyle: customTheme.tHeading7,
       ),
     );
   }
 
   /// for getting light theme
   ThemeData get lightTheme {
-    return _buildTheme(lightColorScheme);
-  }
-
-  /// for getting dark theme
-  ThemeData get darkTheme {
-    return _buildTheme(darkColorScheme);
+    return _buildTheme(_lightColorScheme);
   }
 }
 
 const ltPadding = 20.0;
+
+@riverpod
+AppTheme appTheme(AppThemeRef ref) => AppTheme();

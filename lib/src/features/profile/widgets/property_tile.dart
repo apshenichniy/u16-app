@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:u16/src/core/core.dart';
+import 'package:u16/src/gen/fonts.gen.dart';
 
 class PropertyTile extends StatelessWidget {
   const PropertyTile({
@@ -18,17 +18,14 @@ class PropertyTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final valueText = value ?? (placeholder ?? '');
     final valueStyle = value != null
-        ? Theme.of(context).customTheme.tHeading6
-        : Theme.of(context)
-            .customTheme
-            .tHeading6
-            ?.copyWith(color: Theme.of(context).colorScheme.outline);
+        ? TextStyle(color: Theme.of(context).colorScheme.outline)
+        : null;
 
     return InkWell(
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.symmetric(
-          vertical: 14,
+          vertical: 12,
           horizontal: 8,
         ),
         child: Row(
@@ -36,14 +33,15 @@ class PropertyTile extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Theme.of(context)
-                  .customTheme
-                  .tHeading6
-                  ?.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    fontFamily: FontFamily.sFProDisplay,
+                    color: Colors.black,
+                  ),
             ),
             Text(
               valueText,
-              style: valueStyle,
+              style: const TextStyle(fontSize: 16),
+              //style: valueStyle,
             ),
           ],
         ),

@@ -202,8 +202,8 @@ class CustomTheme extends ThemeExtension<CustomTheme> {
   }
 }
 
-extension GetCustomTheme on ThemeData {
-  CustomTheme get customTheme {
-    return extension<CustomTheme>()!;
-  }
-}
+// extension GetCustomTheme on ThemeData {
+//   CustomTheme get customTheme {
+//     return extension<CustomTheme>()!;
+//   }
+// }

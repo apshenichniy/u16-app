@@ -31,7 +31,7 @@ class _CreateUsernamePageState extends ConsumerState<CreateUsernamePage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).customTheme;
+    //final theme = Theme.of(context).customTheme;
     final isLoading = ref.watch(createUsernameNotifierProvider).isLoading ||
         ref.watch(authenticationControllerProvider).isLoading;
 
@@ -72,7 +72,7 @@ class _CreateUsernamePageState extends ConsumerState<CreateUsernamePage> {
                 ),
                 Text(
                   context.l10n.createUsernameChooseUsername,
-                  style: theme.tHeading6,
+                  //style: theme.tHeading6,
                 ),
                 Gaps.vGap10,
                 TextField(

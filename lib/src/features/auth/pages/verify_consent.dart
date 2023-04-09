@@ -21,7 +21,7 @@ class _VerifyConsentPageState extends ConsumerState<VerifyConsentPage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).customTheme;
+    ///final theme = Theme.of(context).customTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     ref.listen(authenticationControllerProvider, (previous, next) {
@@ -54,7 +54,7 @@ class _VerifyConsentPageState extends ConsumerState<VerifyConsentPage> {
                   Text(
                     context.l10n.verifyConsentEnterCode,
                     textAlign: TextAlign.center,
-                    style: theme.tHeading6Inter,
+                    //tyle: theme.tHeading6Inter,
                   ),
                   Padding(
                     padding:
@@ -64,7 +64,7 @@ class _VerifyConsentPageState extends ConsumerState<VerifyConsentPage> {
                       focusedBorderColor: colorScheme.primary,
                       clearText: _clearText,
                       showFieldAsBox: true,
-                      textStyle: theme.tHeading1,
+                      //textStyle: theme.tHeading1,
                       onSubmit: (String value) {
                         setState(() {
                           _enteredCode = value;

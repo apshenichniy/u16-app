@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:u16/src/core/core.dart';
 
 extension SnackbarX on BuildContext {
   void showSnackbar(
@@ -14,8 +13,7 @@ extension SnackbarX on BuildContext {
             backgroundColor: backgroundColor,
             content: Text(
               message,
-              style:
-                  Theme.of(this).customTheme.tHeading7?.copyWith(color: color),
+              style: TextStyle(color: color),
             ),
             behavior: SnackBarBehavior.floating,
             showCloseIcon: true,

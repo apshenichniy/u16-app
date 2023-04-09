@@ -7,6 +7,7 @@ import 'package:u16/src/core/core.dart';
 import 'package:u16/src/features/auth/models/app_user.dart';
 import 'package:u16/src/features/profile/profile.dart';
 import 'package:u16/src/gen/assets.gen.dart';
+import 'package:u16/src/gen/fonts.gen.dart';
 import 'package:u16/src/l10n/l10n.dart';
 
 class PersonalDetailsTabView extends StatefulWidget {
@@ -25,6 +26,8 @@ class PersonalDetailsTabView extends StatefulWidget {
 class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SingleChildScrollView(
       physics: const ClampingScrollPhysics(),
       child: Padding(
@@ -33,23 +36,38 @@ class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
               children: [
                 Text(
                   context.l10n.personalDetails,
-                  style: Theme.of(context).customTheme.tHeading4,
+                  style: theme.textTheme.headlineSmall?.copyWith(
+                    fontFamily: FontFamily.sFProDisplay,
+                    fontSize: 16,
+                    letterSpacing: 1,
+                  ),
+                  //style: Theme.of(context).customTheme.tHeading4,
                 ),
                 if (widget.isCurrentUser)
-                  IconButton(
-                    onPressed: () {
-                      context.router.pushWidget(
-                        EditPersonalDetails(
-                          user: widget.user,
-                        ),
-                        transitionBuilder: TransitionsBuilders.slideBottom,
-                        transitionDuration: const Duration(milliseconds: 150),
-                      );
-                    },
-                    icon: SvgPicture.asset(Assets.images.editIcon),
+                  Baseline(
+                    baseline: 40,
+                    baselineType: TextBaseline.alphabetic,
+                    child: IconButton(
+                      onPressed: () {
+                        context.router.pushWidget(
+                          EditPersonalDetails(
+                            user: widget.user,
+                          ),
+                          transitionBuilder: TransitionsBuilders.slideBottom,
+                          transitionDuration: const Duration(milliseconds: 150),
+                        );
+                      },
+                      icon: SvgPicture.asset(
+                        Assets.images.editIcon,
+                        width: 32,
+                        height: 32,
+                      ),
+                    ),
                   ),
               ],
             ),

@@ -55,7 +55,7 @@ class _AgeCheckPageState extends ConsumerState<AgeCheckPage> {
                   children: [
                     Text(
                       context.l10n.ageCheckDescription,
-                      style: Theme.of(context).customTheme.tHeading7Medium,
+                      //style: Theme.of(context).customTheme.tHeading7Medium,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(
@@ -63,7 +63,7 @@ class _AgeCheckPageState extends ConsumerState<AgeCheckPage> {
                     ),
                     Text(
                       context.l10n.ageCheckSpecifyDateOfBirth,
-                      style: Theme.of(context).customTheme.tHeading6Regular,
+                      //style: Theme.of(context).customTheme.tHeading6Regular,
                       textAlign: TextAlign.center,
                     ),
                     Padding(

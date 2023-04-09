@@ -10,16 +10,15 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final appTheme = ref.watch(appThemeProvider);
     final router = ref.watch(routerProvider);
-    final theme = AppTheme();
 
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: router.config(),
-      theme: theme.lightTheme,
-      darkTheme: theme.darkTheme,
+      theme: appTheme.lightTheme,
       themeMode: ThemeMode.light,
     );
   }

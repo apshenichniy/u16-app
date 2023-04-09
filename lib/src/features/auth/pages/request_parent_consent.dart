@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:loading_overlay/loading_overlay.dart';
 import 'package:u16/src/core/core.dart';
-import 'package:u16/src/core/widgets/unfocus.dart';
 import 'package:u16/src/features/auth/auth.dart';
 import 'package:u16/src/l10n/l10n.dart';
 import 'package:validators/validators.dart';
@@ -33,7 +32,7 @@ class _RequestParentConsentPageState
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).customTheme;
+    //final theme = Theme.of(context).customTheme;
     final isLoading = ref.watch(authenticationControllerProvider).isLoading;
 
     ref.listen(authenticationControllerProvider, (previous, next) {
@@ -62,7 +61,7 @@ class _RequestParentConsentPageState
                 children: [
                   Text(
                     context.l10n.requestConsentWellSendCode,
-                    style: theme.tHeading6Regular,
+                    //style: theme.tHeading6Regular,
                     textAlign: TextAlign.center,
                   ),
                   Padding(

@@ -46,8 +46,8 @@ class _EditPersonalDetailsState extends State<EditPersonalDetails> {
                 value: widget.user.username,
                 onTap: () async {
                   final username = await context.router.pushWidget<String>(
-                    EditUsername(
-                      value: widget.user.username,
+                    EditUsernameView(
+                      username: widget.user.username,
                     ),
                   );
                 },

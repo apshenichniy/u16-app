@@ -10,8 +10,8 @@ dependencies:
   age_calculator: ^1.0.0
   auto_route: ^6.0.5
   cached_network_image: ^3.2.3
+  easy_debounce: ^2.0.3
   extended_nested_scroll_view: ^6.0.0
-  flex_seed_scheme: ^1.2.3
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
@@ -58,5 +58,162 @@ flutter:
   assets:
     - .env/
     - assets/images/
-#    - assets/fonts/
 
+  fonts:
+    - family: Akrobat
+      fonts:
+      - asset: assets/fonts/akrobat/Akrobat-Black.ttf
+      - asset: assets/fonts/akrobat/Akrobat-Bold.ttf
+      - asset: assets/fonts/akrobat/Akrobat-ExtraBold.ttf
+      - asset: assets/fonts/akrobat/Akrobat-ExtraLight.ttf
+      - asset: assets/fonts/akrobat/Akrobat-Light.ttf
+      - asset: assets/fonts/akrobat/Akrobat-Regular.ttf
+      - asset: assets/fonts/akrobat/Akrobat-Semibold.ttf
+      - asset: assets/fonts/akrobat/Akrobat-Thin.ttf
+    - family: UniNeue
+      fonts:
+        - asset: assets/fonts/uni_neue/UniNeue-Black.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-BlackItalic.ttf
+          style: italic
+        - asset: assets/fonts/uni_neue/UniNeue-Bold.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-BoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/uni_neue/UniNeue-Book.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-BookItalic.ttf
+          style: italic
+        - asset: assets/fonts/uni_neue/UniNeue-Heavy.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-HeavyItalic.ttf
+          style: italic
+        - asset: assets/fonts/uni_neue/UniNeue-Light.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-LightItalic.ttf
+          style: italic
+        - asset: assets/fonts/uni_neue/UniNeue-Regular.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-RegularItalic.ttf
+          style: italic
+        - asset: assets/fonts/uni_neue/UniNeue-Thin.ttf  
+        - asset: assets/fonts/uni_neue/UniNeue-ThinItalic.ttf
+          style: italic
+    - family: Panton
+      fonts:
+        - asset: assets/fonts/panton/Panton-Black.ttf
+        - asset: assets/fonts/panton/Panton-BlackItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-Bold.ttf
+        - asset: assets/fonts/panton/Panton-BoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-ExtraBold.ttf
+        - asset: assets/fonts/panton/Panton-ExtraBoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-ExtraLight.ttf
+        - asset: assets/fonts/panton/Panton-ExtraLightItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-Fat.ttf
+        - asset: assets/fonts/panton/Panton-FatItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-Heavy.ttf
+        - asset: assets/fonts/panton/Panton-HeavyItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-Light.ttf
+        - asset: assets/fonts/panton/Panton-LightItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-Regular.ttf
+        - asset: assets/fonts/panton/Panton-RegularItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-SemiBold.ttf
+        - asset: assets/fonts/panton/Panton-SemiBoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/panton/Panton-Thin.ttf
+        - asset: assets/fonts/panton/Panton-ThinItalic.ttf
+          style: italic
+    - family: Squad
+      fonts:
+        - asset: assets/fonts/squad/Squad-Black.ttf
+        - asset: assets/fonts/squad/Squad-BlackItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-Bold.ttf
+        - asset: assets/fonts/squad/Squad-BoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-ExtraBold.ttf
+        - asset: assets/fonts/squad/Squad-ExtraBoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-ExtraLight.ttf
+        - asset: assets/fonts/squad/Squad-ExtraLightItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-Heavy.ttf
+        - asset: assets/fonts/squad/Squad-HeavyItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-Light.ttf
+        - asset: assets/fonts/squad/Squad-LightItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-Regular.ttf
+        - asset: assets/fonts/squad/Squad-RegularItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-SemiBold.ttf
+        - asset: assets/fonts/squad/Squad-SemiBoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/squad/Squad-Thin.ttf
+        - asset: assets/fonts/squad/Squad-ThinItalic.ttf
+          style: italic
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/inter/Inter-Black.ttf
+        - asset: assets/fonts/inter/Inter-Bold.ttf
+        - asset: assets/fonts/inter/Inter-ExtraBold.ttf
+        - asset: assets/fonts/inter/Inter-ExtraLight.ttf
+        - asset: assets/fonts/inter/Inter-Light.ttf
+        - asset: assets/fonts/inter/Inter-Medium.ttf
+        - asset: assets/fonts/inter/Inter-Regular.ttf
+        - asset: assets/fonts/inter/Inter-SemiBold.ttf
+        - asset: assets/fonts/inter/Inter-Thin.ttf
+    - family: SF Pro Display
+      fonts:
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Black.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-BlackItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Bold.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-BoldItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Heavy.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-HeavyItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Light.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-LightItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Medium.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-MediumItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Regular.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-RegularItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Semibold.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-SemiboldItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Thin.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-ThinItalic.otf
+          style: italic
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-Ultralight.otf
+        - asset: assets/fonts/sfprodisplay/SF-Pro-Display-UltralightItalic.otf      
+          style: italic
+    - family: Red Hat Display
+      fonts:
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-Black.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-BlackItalic.ttf
+          style: italic
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-Bold.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-BoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-ExtraBold.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-ExtraBoldItalic.ttf
+          style: italic
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-Italic.ttf
+          style: italic
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-Light.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-LightItalic.ttf
+          style: italic
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-Medium.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-MediumItalic.ttf
+          style: italic
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-Regular.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-SemiBold.ttf
+        - asset: assets/fonts/redhatdisplay/RedHatDisplay-SemiBoldItalic.ttf
+          style: italic

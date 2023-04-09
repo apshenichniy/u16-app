@@ -289,6 +289,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  easy_debounce:
+    dependency: "direct main"
+    description:
+      name: easy_debounce
+      sha256: f082609cfb8f37defb9e37fc28bc978c6712dedf08d4c5a26f820fa10165a236
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.3"
   extended_nested_scroll_view:
     dependency: "direct main"
     description:
@@ -329,14 +337,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  flex_seed_scheme:
-    dependency: "direct main"
-    description:
-      name: flex_seed_scheme
-      sha256: "7058288ef97d348657ac95cea25d65a9aac181ca08387ede891fd7230ad7600f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.3"
   flutter:
     dependency: "direct main"
     description: flutter

@@ -1,5 +1,7 @@
 import 'package:extended_nested_scroll_view/extended_nested_scroll_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pull_to_refresh_notification/pull_to_refresh_notification.dart';
@@ -53,53 +55,48 @@ class _ProfileViewState extends ConsumerState<ProfileView>
       followOtherUserControllerProvider(otherId: widget.userId).notifier,
     );
 
-    return Row(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: ltPadding / 2),
-            child: FilledButton(
-              onPressed: followState.isLoading
-                  ? null
-                  : () {
-                      if (isFollowed) {
-                        // unfollow
-                        controller.unfollow();
-                      } else {
-                        // follow
-                        controller.follow();
-                      }
-                    },
-              style: isFollowed
-                  ? FilledButton.styleFrom(
-                      backgroundColor:
-                          Theme.of(context).colorScheme.outlineVariant,
-                      foregroundColor:
-                          Theme.of(context).colorScheme.onBackground,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: ltPadding / 2),
+      child: Row(
+        children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: ltPadding / 2),
+              child: followState.isLoading
+                  ? FilledButton(
+                      onPressed: () {},
+                      child: const CupertinoActivityIndicator(
+                        color: AppColors.white,
+                      ),
                     )
-                  : null,
-              child: Text(
-                isFollowed
-                    ? context.l10n.profileFollowing
-                    : context.l10n.profileFollow,
+                  : FilledButton.icon(
+                      icon: Icon(isFollowed ? Icons.check : Icons.add),
+                      onPressed:
+                          isFollowed ? controller.unfollow : controller.follow,
+                      label: Text(
+                        isFollowed
+                            ? context.l10n.profileFollowing
+                            : context.l10n.profileFollow,
+                      ),
+                    ),
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: ltPadding / 2),
+              child: FilledButton.icon(
+                onPressed: () {},
+                style: FilledButton.styleFrom(
+                  backgroundColor: AppColors.superLightGray,
+                  foregroundColor: AppColors.black,
+                ),
+                icon: const Icon(Icons.send),
+                label: Text(context.l10n.commonMessage),
               ),
             ),
           ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: ltPadding / 2),
-            child: FilledButton(
-              onPressed: () {},
-              style: FilledButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.outlineVariant,
-                foregroundColor: Theme.of(context).colorScheme.onBackground,
-              ),
-              child: Text(context.l10n.commonMessage),
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
@@ -124,11 +121,11 @@ class _ProfileViewState extends ConsumerState<ProfileView>
                       children: [
                         Text(
                           '${followersInfo?.followers ?? ''}',
-                          style: Theme.of(context).customTheme.tHeading6Inter,
+                          style: AppTextStyles.h6Inter,
                         ),
                         Text(
                           context.l10n.profileFollowers,
-                          style: Theme.of(context).customTheme.tHeading7,
+                          style: AppTextStyles.h7,
                         ),
                       ],
                     ),
@@ -136,11 +133,11 @@ class _ProfileViewState extends ConsumerState<ProfileView>
                       children: [
                         Text(
                           '${followersInfo?.followings ?? ''}',
-                          style: Theme.of(context).customTheme.tHeading6Inter,
+                          style: AppTextStyles.h6Inter,
                         ),
                         Text(
                           context.l10n.profileFollowing,
-                          style: Theme.of(context).customTheme.tHeading7,
+                          style: AppTextStyles.h7,
                         ),
                       ],
                     ),
@@ -153,7 +150,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
             padding: const EdgeInsets.symmetric(vertical: ltPadding),
             child: Text(
               user.bio ?? '',
-              style: Theme.of(context).customTheme.tHeading6,
+              //style: Theme.of(context).customTheme.tHeading6,
               maxLines: 3,
               overflow: TextOverflow.clip,
             ),
@@ -174,18 +171,19 @@ class _ProfileViewState extends ConsumerState<ProfileView>
         ),
       ),
       child: TabBar(
+        dividerColor: AppColors.lightGray,
         controller: _tabController,
         tabs: [
           for (int i = 0; i < _tabs.length; i++)
             Tab(
               child: SvgPicture.asset(
                 _tabs[i].asset,
-                colorFilter: ColorFilter.mode(
-                  _tabController.index == i
-                      ? Theme.of(context).colorScheme.primary
-                      : Theme.of(context).colorScheme.onSurfaceVariant,
-                  BlendMode.srcIn,
-                ),
+                colorFilter: _tabController.index == i
+                    ? const ColorFilter.mode(
+                        AppColors.blueNavigation,
+                        BlendMode.srcIn,
+                      )
+                    : null,
               ),
             ),
         ],
@@ -216,18 +214,25 @@ class _ProfileViewState extends ConsumerState<ProfileView>
     return SliverAppBar(
       pinned: true,
       centerTitle: false,
+      elevation: 0,
+      backgroundColor: AppColors.white,
       title: Text(user.username),
       actions: [
         if (widget.isCurrentUser)
           Padding(
             padding: const EdgeInsets.only(right: ltPadding),
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.baseline,
+              textBaseline: TextBaseline.alphabetic,
               children: [
                 SvgPicture.asset(Assets.images.daysStreak),
                 Gaps.hGap8,
                 Text(
                   '$daysStreak ${context.l10n.commonDays}',
-                  style: Theme.of(context).customTheme.tHeading7Medium,
+                  style: const TextStyle(
+                    //fontFamily: FontFamily.uniNeue,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ],
             ),
@@ -237,6 +242,7 @@ class _ProfileViewState extends ConsumerState<ProfileView>
   }
 
   Future<bool> _refreshUser() async {
+    HapticFeedback.mediumImpact().ignore();
     await Future.wait([
       ref.refresh(userProvider(userId: widget.userId).future),
       ref.refresh(followersInfoProvider(userId: widget.userId).future),

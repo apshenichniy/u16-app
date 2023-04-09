@@ -138,7 +138,7 @@ class ProfileTypeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context).customTheme;
+    //final theme = Theme.of(context).customTheme;
     final colorScheme = Theme.of(context).colorScheme;
 
     return GestureDetector(
@@ -149,11 +149,20 @@ class ProfileTypeItem extends StatelessWidget {
           Gaps.vGap10,
           Text(
             type.title(context),
-            style: theme.tHeading6?.copyWith(
-              color:
-                  isSelected ? colorScheme.primary : colorScheme.onBackground,
-              fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-            ),
+            style: isSelected
+                ? TextStyle(
+                    color: colorScheme.primary,
+                    fontWeight: FontWeight.w700,
+                  )
+                : TextStyle(
+                    color: colorScheme.onBackground,
+                    fontWeight: FontWeight.w500,
+                  ),
+            // style: theme.tHeading6?.copyWith(
+            //   color:
+            //       isSelected ? colorScheme.primary : colorScheme.onBackground,
+            //   fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+            // ),
           ),
         ],
       ),

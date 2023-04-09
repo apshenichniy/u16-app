@@ -39,7 +39,7 @@ class SignInPage extends ConsumerWidget {
                   Text(
                     context.l10n.signInWelcomeToU16,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).customTheme.tHeading1,
+                    //style: Theme.of(context).customTheme.tHeading1,
                   ),
                   SvgPicture.asset(Assets.images.soccerArt),
                 ],
@@ -65,7 +65,7 @@ class SignInPage extends ConsumerWidget {
                     child: Text(
                       context.l10n.signInOr,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).customTheme.tHeading6Regular,
+                      //style: Theme.of(context).customTheme.tHeading6Regular,
                     ),
                   ),
                   if (Platform.isIOS)
@@ -121,7 +121,7 @@ class SignInPage extends ConsumerWidget {
                     child: Text(
                       context.l10n.signInAlreadyHaveAnAccount,
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).customTheme.tHeading6Regular,
+                      //style: Theme.of(context).customTheme.tHeading6Regular,
                     ),
                   ),
                   Row(

@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:u16/src/core/core.dart';
 
 @RoutePage()
 class VideoFeedPage extends ConsumerStatefulWidget {
@@ -34,7 +33,7 @@ class _VideoFeedPageState extends ConsumerState<VideoFeedPage>
               child: Center(
                 child: Text(
                   'video: $index',
-                  style: Theme.of(context).customTheme.tHeading4,
+                  //style: Theme.of(context).customTheme.tHeading4,
                 ),
               ),
             );
