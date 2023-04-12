@@ -14,8 +14,8 @@ _$_AppUser _$$_AppUserFromJson(Map<String, dynamic> json) => _$_AppUser(
       createdAt: json['created_at'] == null
           ? null
           : DateTime.parse(json['created_at'] as String),
-      height: json['height'] as num?,
-      weight: json['weight'] as num?,
+      height: json['height'] as int?,
+      weight: json['weight'] as int?,
       gender: $enumDecodeNullable(_$GenderTypeEnumMap, json['gender']),
       bio: json['bio'] as String?,
     );

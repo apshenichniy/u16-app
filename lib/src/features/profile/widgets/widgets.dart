@@ -1,4 +1,5 @@
 export 'avatar.dart';
+export 'edit_details_property.dart';
 export 'edit_personal_details.dart';
 export 'edit_username.dart';
 export 'notifications_tab_view.dart';

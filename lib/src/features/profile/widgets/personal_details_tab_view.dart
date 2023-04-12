@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:age_calculator/age_calculator.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,6 @@ import 'package:u16/src/core/core.dart';
 import 'package:u16/src/features/auth/models/app_user.dart';
 import 'package:u16/src/features/profile/profile.dart';
 import 'package:u16/src/gen/assets.gen.dart';
-import 'package:u16/src/gen/fonts.gen.dart';
 import 'package:u16/src/l10n/l10n.dart';
 
 class PersonalDetailsTabView extends StatefulWidget {
@@ -26,8 +26,6 @@ class PersonalDetailsTabView extends StatefulWidget {
 class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return SingleChildScrollView(
       physics: const ClampingScrollPhysics(),
       child: Padding(
@@ -41,12 +39,6 @@ class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
               children: [
                 Text(
                   context.l10n.personalDetails,
-                  style: theme.textTheme.headlineSmall?.copyWith(
-                    fontFamily: FontFamily.sFProDisplay,
-                    fontSize: 16,
-                    letterSpacing: 1,
-                  ),
-                  //style: Theme.of(context).customTheme.tHeading4,
                 ),
                 if (widget.isCurrentUser)
                   Baseline(
@@ -73,46 +65,69 @@ class _PersonalDetailsTabViewState extends State<PersonalDetailsTabView> {
             ),
             Gaps.vGapPadding,
             // 'date of birth' for current user
-            if (widget.isCurrentUser)
-              PropertyTile(
-                title: context.l10n.personalDetailsDateOfBirth,
-                value: DateFormat.yMMMd().format(widget.user.dateOfBirth),
-              )
-            else
-              // 'age' for other user
-              PropertyTile(
-                title: context.l10n.personalDetailsAge,
-                value:
-                    AgeCalculator.age(widget.user.dateOfBirth).years.toString(),
-              ),
+            _DetailsItem(
+              title: context.l10n.personalDetailsDateOfBirth,
+              value: widget.isCurrentUser
+                  ? DateFormat.yMMMd().format(widget.user.dateOfBirth)
+                  : AgeCalculator.age(widget.user.dateOfBirth).years.toString(),
+            ),
             divider1,
-            PropertyTile(
+            _DetailsItem(
               title: context.l10n.personalDetailsGender,
               value: widget.user.gender?.localized(context),
             ),
             divider1,
-            PropertyTile(
+            _DetailsItem(
               title: context.l10n.personalDetailsHeight,
               value:
                   widget.user.height != null ? '${widget.user.height} cm' : '',
             ),
             divider1,
-            PropertyTile(
+            _DetailsItem(
               title: context.l10n.personalDetailsWeight,
               value:
                   widget.user.weight != null ? '${widget.user.weight} kg' : '',
             ),
             divider1,
-            PropertyTile(title: context.l10n.personalDetailsStrongSides),
-            divider1,
-            PropertyTile(title: context.l10n.personalDetailsCountry),
-            divider1,
-            PropertyTile(title: context.l10n.personalDetailsSchool),
-            divider1,
-            PropertyTile(title: context.l10n.personalDetailsLanguage),
-            divider1,
+            FilledButton(
+              onPressed: () async {
+                await showDiscardChangesDialog(context);
+              },
+              child: const Text('Show'),
+            )
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _DetailsItem extends StatelessWidget {
+  const _DetailsItem({
+    required this.title,
+    required this.value,
+    // ignore: unused_element
+    super.key,
+  });
+  final String title;
+  final String? value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            title,
+            style: AppTextStyles.h6Medium,
+          ),
+          Text(
+            value ?? '-',
+            style: AppTextStyles.h6Regular,
+          ),
+        ],
       ),
     );
   }

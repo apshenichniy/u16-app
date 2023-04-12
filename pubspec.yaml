@@ -10,6 +10,8 @@ dependencies:
   age_calculator: ^1.0.0
   auto_route: ^6.0.5
   cached_network_image: ^3.2.3
+  cupertino_icons: ^1.0.5
+  dev: ^1.0.0
   easy_debounce: ^2.0.3
   extended_nested_scroll_view: ^6.0.0
   flutter:

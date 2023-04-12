@@ -13,8 +13,8 @@ class AppUser with _$AppUser {
     required UserProfileType profileType,
     required DateTime dateOfBirth,
     @JsonKey(includeIfNull: false) DateTime? createdAt,
-    num? height,
-    num? weight,
+    int? height,
+    int? weight,
     GenderType? gender,
     String? bio,
   }) = _AppUser;

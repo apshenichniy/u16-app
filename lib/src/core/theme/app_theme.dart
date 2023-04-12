@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:u16/src/core/theme/app_colors.dart';
+import 'package:u16/src/core/theme/theme.dart';
 import 'package:u16/src/gen/fonts.gen.dart';
 
 part 'app_theme.g.dart';
@@ -17,6 +17,9 @@ final _borderRadius = BorderRadius.circular(10);
 class AppTheme {
   ThemeData _buildTheme(ColorScheme colorScheme) {
     return ThemeData(
+      textTheme: const TextTheme(
+        bodyLarge: AppTextStyles.h6Regular,
+      ),
       fontFamily: FontFamily.redHatDisplay,
       useMaterial3: true,
       colorScheme: colorScheme,
@@ -69,6 +72,7 @@ class AppTheme {
           textStyle: const TextStyle(
             fontSize: 16,
             fontFamily: FontFamily.inter,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),
@@ -96,6 +100,7 @@ class AppTheme {
           borderRadius: _borderRadius,
           borderSide: BorderSide.none,
         ),
+        hintStyle: AppTextStyles.h6Regular.copyWith(color: AppColors.darkGray),
       ),
     );
   }

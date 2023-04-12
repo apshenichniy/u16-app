@@ -2,6 +2,7 @@
     "@@locale": "en",
     "commonError": "Error",
     "commonNext": "Next",
+    "commonCancel": "Cancel",
     "commonSubmit": "Submit",
     "commonMessage": "Message",
     "commonDays": "days",
@@ -83,7 +84,17 @@
     "personalDetailsSchool": "School/Academy",
     "personalDetailsLanguage": "Language",
     "personalDetailsYourGender": "Your gender",
-    "personalDetailsYourHeight": "Your height (cm)",
-    "personalDetailsYourWeight": "Your weight (kg)",
-    "personalDetailsYourStrongSides": "Your strong sides"
+    "personalDetailsYourHeight": "Your height",
+    "personalDetailsYourWeight": "Your weight",
+    "personalDetailsYourStrongSides": "My strong sides",
+    "personalDetailsDeleteAccount": "Delete account",
+    "personalDetailsBio": "Bio",
+    "personalDetailsYourBio": "Your bio",
+    "personalDetailsHeightShouldBeANumber": "Your height should be a number in cm",
+    "personalDetailsWeightShouldBeAuNumber": "Your height should be a number in kg",
+    "personalDetailsEnterYourHeight": "Enter your height in cm",
+    "personalDetailsEnterYourWeight": "Enter your weight in kg",
+    "discardChanges": "Discard changes?",
+    "discardChangesIfYouGoBack": "If you go back now, you will lose your changes.",
+    "discardChangesContinueEditing": "Continue editing"
 }

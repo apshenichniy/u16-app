@@ -8,9 +8,45 @@ abstract class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static const h7Inter = TextStyle(
+    fontFamily: FontFamily.inter,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+  );
+
   static const h6Inter = TextStyle(
     fontFamily: FontFamily.inter,
     fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const h6Medium = TextStyle(
+    fontFamily: FontFamily.redHatDisplay,
+    fontSize: 16,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const h6Regular = TextStyle(
+    fontFamily: FontFamily.redHatDisplay,
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const h5Regular = TextStyle(
+    fontFamily: FontFamily.redHatDisplay,
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const h5Medium = TextStyle(
+    fontFamily: FontFamily.redHatDisplay,
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const h5InterMedium = TextStyle(
+    fontFamily: FontFamily.inter,
+    fontSize: 18,
     fontWeight: FontWeight.w500,
   );
 }

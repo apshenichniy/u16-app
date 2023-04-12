@@ -26,8 +26,8 @@ mixin _$AppUser {
   DateTime get dateOfBirth => throw _privateConstructorUsedError;
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  num? get height => throw _privateConstructorUsedError;
-  num? get weight => throw _privateConstructorUsedError;
+  int? get height => throw _privateConstructorUsedError;
+  int? get weight => throw _privateConstructorUsedError;
   GenderType? get gender => throw _privateConstructorUsedError;
   String? get bio => throw _privateConstructorUsedError;
 
@@ -47,8 +47,8 @@ abstract class $AppUserCopyWith<$Res> {
       UserProfileType profileType,
       DateTime dateOfBirth,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
-      num? height,
-      num? weight,
+      int? height,
+      int? weight,
       GenderType? gender,
       String? bio});
 }
@@ -100,11 +100,11 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
       height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as num?,
+              as int?,
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as num?,
+              as int?,
       gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ abstract class _$$_AppUserCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       UserProfileType profileType,
       DateTime dateOfBirth,
       @JsonKey(includeIfNull: false) DateTime? createdAt,
-      num? height,
-      num? weight,
+      int? height,
+      int? weight,
       GenderType? gender,
       String? bio});
 }
@@ -180,11 +180,11 @@ class __$$_AppUserCopyWithImpl<$Res>
       height: freezed == height
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
-              as num?,
+              as int?,
       weight: freezed == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
-              as num?,
+              as int?,
       gender: freezed == gender
           ? _value.gender
           : gender // ignore: cast_nullable_to_non_nullable
@@ -226,9 +226,9 @@ class _$_AppUser implements _AppUser {
   @JsonKey(includeIfNull: false)
   final DateTime? createdAt;
   @override
-  final num? height;
+  final int? height;
   @override
-  final num? weight;
+  final int? weight;
   @override
   final GenderType? gender;
   @override
@@ -285,8 +285,8 @@ abstract class _AppUser implements AppUser {
       required final UserProfileType profileType,
       required final DateTime dateOfBirth,
       @JsonKey(includeIfNull: false) final DateTime? createdAt,
-      final num? height,
-      final num? weight,
+      final int? height,
+      final int? weight,
       final GenderType? gender,
       final String? bio}) = _$_AppUser;
 
@@ -304,9 +304,9 @@ abstract class _AppUser implements AppUser {
   @JsonKey(includeIfNull: false)
   DateTime? get createdAt;
   @override
-  num? get height;
+  int? get height;
   @override
-  num? get weight;
+  int? get weight;
   @override
   GenderType? get gender;
   @override

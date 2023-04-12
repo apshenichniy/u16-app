@@ -1,6 +1,7 @@
 export 'constants.dart';
 export 'extensions/extensions.dart';
 export 'logger.dart';
+export 'models/models.dart';
 export 'observer.dart';
 export 'providers/providers.dart';
 export 'router/router.dart';

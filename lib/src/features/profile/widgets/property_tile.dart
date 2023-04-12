@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:u16/src/gen/fonts.gen.dart';
+import 'package:u16/src/core/core.dart';
 
-class PropertyTile extends StatelessWidget {
+class PropertyTile<T> extends StatelessWidget {
   const PropertyTile({
     required this.title,
     this.placeholder,
@@ -11,12 +11,12 @@ class PropertyTile extends StatelessWidget {
   });
   final String title;
   final String? placeholder;
-  final String? value;
+  final T? value;
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final valueText = value ?? (placeholder ?? '');
+    final valueText = value?.toString() ?? (placeholder ?? '');
     final valueStyle = value != null
         ? TextStyle(color: Theme.of(context).colorScheme.outline)
         : null;
@@ -33,16 +33,9 @@ class PropertyTile extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontFamily: FontFamily.sFProDisplay,
-                    color: Colors.black,
-                  ),
+              style: AppTextStyles.h6Medium,
             ),
-            Text(
-              valueText,
-              style: const TextStyle(fontSize: 16),
-              //style: valueStyle,
-            ),
+            Text(valueText),
           ],
         ),
       ),
